@@ -1,4 +1,4 @@
-package Животные;
+package Animals;
 
 abstract class Animal {
     protected String name;

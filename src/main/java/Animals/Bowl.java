@@ -1,4 +1,4 @@
-package Животные;
+package Animals;
 
 public class Bowl {
     private int foodAmount;
@@ -18,12 +18,10 @@ public class Bowl {
         }
     }
 
-    public boolean decreaseFood(int amount) {
-        if (foodAmount >= amount) {
+    public void decreaseFood(int amount) {
+        if (amount > 0 && foodAmount >= amount) {
             foodAmount -= amount;
-            return true;
         }
-        return false;
     }
 
     public int getFoodAmount() {
