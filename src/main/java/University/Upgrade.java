@@ -6,15 +6,20 @@ import java.util.Set;
 
 public class Upgrade {
 
-    public static void processStudents(List<Student> students) {
+    public static void removeLowPerformingStudents(List<Student> students) {
         Iterator<Student> iterator = students.iterator();
-
         while (iterator.hasNext()) {
             Student student = iterator.next();
             if (student.getAverageGrade() < 3.0) {
                 System.out.println("Студент отчислен за неуспеваемость: " + student.getName());
                 iterator.remove();
-            } else {
+            }
+        }
+    }
+
+    public static void promoteStudents(List<Student> students) {
+        for (Student student : students) {
+            if (student.getAverageGrade() >= 3.0) {
                 student.nextCourse();
             }
         }
