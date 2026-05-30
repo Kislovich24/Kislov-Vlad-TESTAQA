@@ -5,6 +5,7 @@ public class MathOperations {
         if (n < 0) {
             throw new IllegalArgumentException("Число должно быть неотрицательным");
         }
+        if (n < 0) throw new IllegalArgumentException("Число должно быть неотрицательным");
         long result = 1;
         for (int i = 1; i <= n; i++) {
             result *= i;
@@ -14,6 +15,7 @@ public class MathOperations {
 
     // 2. Площадь треугольника
     public static double triangleArea(double base, double height) {
+
         if (base <= 0 || height <= 0) {
             throw new IllegalArgumentException("Размеры должны быть больше нуля");
         }
@@ -39,5 +41,29 @@ public class MathOperations {
     // 4. Метод сравнения двух чисел
     public static int compare(double a, double b) {
         return Double.compare(a, b);
+        if (base <= 0 || height <= 0) throw new IllegalArgumentException("Размеры должны быть больше 0");
+        return 0.5 * base * height;
+    }
+
+    // 3. Арифметические действия
+    public static double calculate(int a, int b, char operation) {
+        switch (operation) {
+            case '+':
+                return a + b;
+            case '-':
+                return a - b;
+            case '*':
+                return a * b;
+            case '/':
+                if (b == 0) throw new ArithmeticException("Деление на ноль");
+                return (double) a / b;
+            default:
+                throw new IllegalArgumentException("Неверная операция");
+        }
+    }
+
+    // 4. Сравнение двух чисел
+    public static int compare(int a, int b) {
+        return Integer.compare(a, b);
     }
 }
