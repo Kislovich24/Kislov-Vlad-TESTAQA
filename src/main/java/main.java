@@ -1,117 +1,23 @@
-public class main {
-
+public class Main {
     public static void main(String[] args) {
-        printThreeWords();
-        checkSumSign();
-        printColor();
-        compareNumbers();
-        System.out.println(isSumInRange(10, 5));
-        printIsPositive(-5);
-        System.out.println(isNegative(-10));
-        printStringMultipleTimes("Java", 3);
-        System.out.println(isLeapYear(2024));
-        invertArray();
-        fillArray();
-        changeArray();
-        fillDiagonal();
-        int[] myArr = createArray(5, 10);
-    }
+        Product[] productsArray = new Product[5];
 
-    // Задание 1
-    public static void printThreeWords() {
-        System.out.println("Orange");
-        System.out.println("Banana");
-        System.out.println("Apple");
-    }
+        productsArray[0] = new Product("Samsung S25 Ultra", "01.02.2025", "Samsung Corp.", "Korea", 5599, true);
+        productsArray[1] = new Product("iPhone 16 Pro", "10.09.2024", "Apple Inc.", "USA", 6200, false);
+        productsArray[2] = new Product("Xiaomi 14", "15.03.2024", "Xiaomi", "China", 4100, false);
+        productsArray[3] = new Product("PlayStation 5 Pro", "07.11.2024", "Sony", "Japan", 3800, true);
+        productsArray[4] = new Product("Nintendo Switch", "03.03.2017", "Nintendo", "Japan", 1500, false);
 
-    // Задание 2
-    public static void checkSumSign() {
-        int b = -20;
-        int a = 10;
-        if (a + b >= 0) System.out.println("Сумма положительная");
-        else System.out.println("Сумма отрицательная");
-    }
-
-    // Задание 3
-    public static void printColor() {
-        int value = 50;
-        if (value <= 0) System.out.println("Красный");
-        else if (value <= 100) System.out.println("Желтый");
-        else System.out.println("Зеленый");
-    }
-
-    // Задание 4
-    public static void compareNumbers() {
-        int a = 5, b = 10;
-        if (a >= b) System.out.println("a >= b");
-        else System.out.println("a < b");
-    }
-    // Задание 5
-    public static boolean isSumInRange(int a, int b) {
-        int sum = a + b;
-        return sum >= 10 && sum <= 20;
-    }
-
-    // Задание 6
-    public static void printIsPositive(int x) {
-        if (x >= 0) System.out.println("Число положительное");
-        else System.out.println("Число отрицательное");
-    }
-
-    // Задание 7
-    public static boolean isNegative(int x) {
-        return x < 0;
-    }
-
-    // Задание 8
-    public static void printStringMultipleTimes(String str, int count) {
-        for (int i = 0; i < count; i++) {
-            System.out.println(str);
+        for (Product product : productsArray) {
+            product.printInfo();
         }
-    }
 
-    // Задание 9
-    public static boolean isLeapYear(int year) {
-        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
-    }
-    // Задание 10
-    public static void invertArray() {
-        int[] arr = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = (arr[i] == 1) ? 0 : 1;
-        }
-    }
+        Park centralPark = new Park("Центральный Парк");
 
-    // Задание 11
-    public static void fillArray() {
-        int[] arr = new int[100];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = i + 1;
-        }
-    }
+        Park.Attraction rollerCoaster = centralPark.new Attraction("Американские горки", "10:00-22:00", 500.0);
+        Park.Attraction ferrisWheel = centralPark.new Attraction("Колесо обозрения", "09:00-23:00", 300.0);
 
-    // Задание 12
-    public static void changeArray() {
-        int[] arr = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < 6) arr[i] *= 2;
-        }
-    }
-
-    // Задание 13
-    public static void fillDiagonal() {
-        int[][] matrix = new int[5][5]; // Пример для квадрата 5х5
-        for (int i = 0; i < matrix.length; i++) {
-            matrix[i][i] = 1;
-        }
-    }
-
-    // Задание 14
-    public static int[] createArray(int len, int initialValue) {
-        int[] arr = new int[len];
-        for (int i = 0; i < len; i++) {
-            arr[i] = initialValue;
-        }
-        return arr;
+        rollerCoaster.printAttractionInfo();
+        ferrisWheel.printAttractionInfo();
     }
 }
