@@ -18,6 +18,10 @@
   <dependencies>
 
 
+    <!-- Тестовый фреймворк JUnit 5 API -->
+
+
+
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>Aston</groupId>
@@ -33,13 +37,22 @@
     </dependency>
 
 
+
+    <!-- Поддержка параметризованных тестов JUnit 5 -->
+
+
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-params</artifactId>
       <version>5.6.2</version>
       <scope>test</scope>
     </dependency>
-    
+
+
+
+    <!-- Библиотека Lombok -->
+
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
@@ -47,7 +60,9 @@
       <scope>provided</scope>
     </dependency>
 
-  
+
+    <!-- Автоматизация браузера Selenium WebDriver -->
+
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
@@ -58,6 +73,18 @@
       <artifactId>webdrivermanager</artifactId>
       <version>6.1.0</version>
       <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>5.4.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.18.2</version>
     </dependency>
   </dependencies>
 
