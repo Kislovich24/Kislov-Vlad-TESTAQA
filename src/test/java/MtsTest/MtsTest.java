@@ -47,9 +47,25 @@ public class MtsTest {
                 .fillSumField("10")
                 .fillEmailField("test@test.com")
                 .clickContinue();
+        // 3. Ожидаем появление фрейма оплаты и переключаемся в него
+        org.openqa.selenium.support.ui.WebDriverWait wait = new org.openqa.selenium.support.ui.WebDriverWait(driver, 15);
 
-        // 3. Проверяем, что форма отправилась (URL изменился)
-        Assertions.assertNotEquals(BASE_URL, driver.getCurrentUrl(),
-                "Страница не изменилась после нажатия кнопки Продолжить");
+        // Ждем появления iframe на странице и переключаем контекст внутрь него
+        wait.until(org.openqa.selenium.support.ui.ExpectedConditions.frameToBeAvailableAndSwitchToIt(
+                org.openqa.selenium.By.tagName("iframe")
+        ));
+
+        // Теперь, находясь внутри iframe, проверяем видимость контейнера оплаты
+        org.openqa.selenium.WebElement paymentModal = wait.until(
+                org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated(
+                        org.openqa.selenium.By.cssSelector(".app-wrapper__content-container")
+                )
+        );
+
+        // Проверяем, что окно отображается
+        Assertions.assertTrue(paymentModal.isDisplayed(), "Модальное окно оплаты не появилось внутри фрейма");
+
+        // Возвращаем драйвер обратно на основную страницу
+        driver.switchTo().defaultContent();
     }
 }
