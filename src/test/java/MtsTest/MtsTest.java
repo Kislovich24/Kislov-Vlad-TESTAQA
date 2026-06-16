@@ -65,7 +65,7 @@ public class MtsTest {
         // Проверяем, что окно отображается
         Assertions.assertTrue(paymentModal.isDisplayed(), "Модальное окно оплаты не появилось внутри фрейма");
 
-        // Возвращаем драйвер обратно на основную страницу
+    // Возвращаем драйвер обратно на основную страницу
         driver.switchTo().defaultContent();
     }
 }
